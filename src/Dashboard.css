@@ -1,0 +1,110 @@
+/* Dashboard.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  padding: 20px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.search-bar-container {
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ddedea;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 10px;
+  flex: 1;
+}
+
+.search-bar button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #daeaf6;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #000;
+}
+
+th {
+  cursor: pointer;
+}
+
+th i {
+  margin-left: 5px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fce1e4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffcbcb;
+}
+
+.csv-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.csv-button:hover {
+  background-color: #0056b3;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination select {
+  padding: 10px;
+}
