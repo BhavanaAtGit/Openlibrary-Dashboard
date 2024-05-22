@@ -30,14 +30,14 @@ The Admin Dashboard is a web application built to display book records fetched f
 ## **Installation**
 
 1. Clone the repository:
-git clone https://github.com/BhavanaAtGit/admin-dashboard.git
+- git clone https://github.com/BhavanaAtGit/Openlibrary-Dashboard.git
 
 2. Install dependencies:
-cd admin-dashboard
-npm install
+- cd admin-dashboard
+- npm install
 
 3. Start the development server:
-npm start
+- npm start
 
 
 ## **Usage**
