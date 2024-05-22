@@ -30,7 +30,7 @@ The Admin Dashboard is a web application built to display book records fetched f
 ## **Installation**
 
 1. Clone the repository:
-git clone https://github.com/your-username/admin-dashboard.git
+git clone https://github.com/BhavanaAtGit/admin-dashboard.git
 
 2. Install dependencies:
 cd admin-dashboard
