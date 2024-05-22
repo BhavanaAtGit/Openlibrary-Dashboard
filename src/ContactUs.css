@@ -1,7 +1,29 @@
-/* ContactUs.css */
+/* AboutUs.css */
 
 .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
     padding: 20px;
-    margin-top: 60px; /* Adjust for fixed navbar */
+  }
+  
+  .contact-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .contact-container p {
+    background-color: #fce1e4;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: #333;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   

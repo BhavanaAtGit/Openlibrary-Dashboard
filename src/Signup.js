@@ -7,6 +7,7 @@ import './Auth.css';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -15,7 +16,7 @@ const Signup = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       navigate('/login');
     } catch (error) {
-      console.error('Error signing up:', error);
+      setError('Error signing up. Please try again.');
     }
   };
 
@@ -37,8 +38,9 @@ const Signup = () => {
         />
         <button type="submit">Signup</button>
       </form>
+      {error && <p className="error-message">{error}</p>}
       <p>
-        Already have an account? <a onClick={() => navigate('/login')}>Login</a>
+        Already have an account? <button className="link-button" onClick={() => navigate('/login')}>Login</button>
       </p>
     </div>
   );

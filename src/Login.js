@@ -7,6 +7,7 @@ import './Auth.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -15,7 +16,7 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
     } catch (error) {
-      console.error('Error logging in:', error);
+      setError('Incorrect email or password.');
     }
   };
 
@@ -37,8 +38,9 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      {error && <p className="error-message">{error}</p>}
       <p>
-        Don't have an account? <a onClick={() => navigate('/signup')}>Signup</a>
+        Don't have an account? <button className="link-button" onClick={() => navigate('/signup')}>Signup</button>
       </p>
     </div>
   );
