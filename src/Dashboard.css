@@ -1,12 +1,15 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  
 }
 
 .dashboard-container {
   padding: 20px;
   max-width: 90%;
   margin: 0 auto;
+  margin-top: 60px; 
+  margin-bottom: 30px;
 }
 
 .search-bar-container {
@@ -34,7 +37,22 @@ body {
 }
 
 .records-per-page-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.csv-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.csv-button:hover {
+  background-color: #0056b3;
 }
 
 .records-per-page-selector label {
@@ -46,6 +64,7 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
+
 
 .table-container {
   overflow-x: auto;
@@ -87,19 +106,6 @@ tbody tr.editing-row {
   background-color: #ffff99; 
 }
 
-.csv-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.csv-button:hover {
-  background-color: #0056b3;
-}
 
 .pagination {
   display: flex;

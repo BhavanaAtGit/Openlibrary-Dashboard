@@ -64,11 +64,22 @@ const Dashboard = () => {
       const aValue = a[sortConfig.key];
       const bValue = b[sortConfig.key];
 
-      if (aValue < bValue) {
-        return sortConfig.direction === 'asc' ? -1 : 1;
-      }
-      if (aValue > bValue) {
-        return sortConfig.direction === 'asc' ? 1 : -1;
+      if (sortConfig.key === 'author_birth_date') {
+        const aDate = aValue === 'N/A' ? new Date(0) : new Date(aValue);
+        const bDate = bValue === 'N/A' ? new Date(0) : new Date(bValue);
+        if (aDate < bDate) {
+          return sortConfig.direction === 'asc' ? -1 : 1;
+        }
+        if (aDate > bDate) {
+          return sortConfig.direction === 'asc' ? 1 : -1;
+        }
+      } else {
+        if (aValue < bValue) {
+          return sortConfig.direction === 'asc' ? -1 : 1;
+        }
+        if (aValue > bValue) {
+          return sortConfig.direction === 'asc' ? 1 : -1;
+        }
       }
     }
     return 0;
@@ -151,18 +162,25 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="records-per-page-selector">
-        <label htmlFor="records-per-page">Records per page:</label>
-        <select id="records-per-page" value={booksPerPage} onChange={handleBooksPerPageChange}>
-          <option value={10}>10</option>
-          <option value={20}>20</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
-      </div>
+  <CSVLink data={currentBooks} filename={"books.csv"} className="csv-button">
+    Download CSV
+  </CSVLink>
+  <div>
+    <label htmlFor="records-per-page">Records per page:</label>
+    <select id="records-per-page" value={booksPerPage} onChange={handleBooksPerPageChange}>
+      <option value={10}>10</option>
+      <option value={20}>20</option>
+      <option value={50}>50</option>
+      <option value={100}>100</option>
+    </select>
+  </div>
+</div>
+
           <div className="table-container">
             <table>
               <thead>
                 <tr>
+                <th>S.No.</th>
                   <th onClick={() => handleSort('ratings_average')}>
                     Rating {getSortIcon('ratings_average')}
                   </th>
@@ -190,6 +208,7 @@ const Dashboard = () => {
               <tbody>
                 {currentBooks.map((book, index) => (
                   <tr key={index} className={editIndex === index ? 'editing-row' : ''}>
+                    <td>{indexOfFirstBook + index + 1}</td>
                     {editIndex === index ? (
                       <>
                         <td><input type="text" name="ratings_average" value={editBook.ratings_average} onChange={handleEditChange} /></td>
@@ -225,24 +244,9 @@ const Dashboard = () => {
               </tbody>
             </table>
           </div>
-          <CSVLink data={currentBooks} filename={"books.csv"} className="csv-button">
+          {/* <CSVLink data={currentBooks} filename={"books.csv"} className="csv-button">
             Download CSV
-          </CSVLink>
-          <div className="pagination">
-            {/* <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
-              Previous
-            </button>
-            <span>Page {currentPage}</span>
-            <button onClick={() => handlePageChange(currentPage + 1)} disabled={indexOfLastBook >= filteredBooks.length}>
-              Next
-            </button> */}
-            {/* <select value={booksPerPage} onChange={handleBooksPerPageChange}>
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-            </select> */}
-          </div>
+          </CSVLink> */}
         </>
       )}
     </div>

@@ -16,31 +16,19 @@ const App = () => {
 
   return (
     <Router>
-      {user ? (
-        <>
-          <Navbar />
-          <div className="main-content">
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="*" element={<Navigate to="/dashboard" />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<ContactUs />} />
-            </Routes>
-          </div>
-          <Footer />
-        </>
-      ) : (
-        <Routes>
+      <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        {user ? (
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
+        ) : (
           <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      )}
+        )}
+      </Routes>
+      <Footer />
     </Router>
   );
 };
